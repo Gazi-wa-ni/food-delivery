@@ -1,0 +1,35 @@
+<%- include('./partials/header.ejs')%>
+    <%- include('./partials/NavHome.ejs')%>
+
+        <section class="section">
+            <div class="container  " >
+                <div class="row g-4 ">
+                    <% items.forEach((e)=> {%>
+                        <div class="col">
+                            <div class="card shadow mx-auto" style="width: 18rem;">
+                                <img src="/public/productImages/<%= e.image %>" class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">
+                                        <%= e.productName %>
+                                    </h5>
+                                    <p>Rs <%= e.price %>/=</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/ordernow/<%= e._id %>" class="m-1 btn btn-primary btn-sm shadow">Order
+                                            Now</a>
+                                        <form action="/addTocard/<%= e._id %>" method="get" class=" m-1 f-right">
+                                            <button type="submit" class="btn btn-warning btn-sm shadow">Add to
+                                                card</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <%})%>
+
+                </div>
+               
+            </div>
+        </section>
+
+        <%- include('./partials/footer.ejs') %>

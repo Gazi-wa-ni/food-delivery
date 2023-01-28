@@ -1,0 +1,45 @@
+<%- include('./partials/Header.ejs')%>
+    <%- include('./partials/NavHome.ejs')%>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 mx-auto col-md-10">
+                    <table class="table mt-3 table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product name</th>
+                                <th scope="col">Product Catagory</th>
+                                <th scope="col">Product Price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% card.map((e)=> {%>
+                                <tr>
+                                    <td>
+                                        <%= e.productName %>
+                                    </td>
+                                    <td>
+                                        <%= e.category %>
+                                    </td>
+                                    <td>
+                                        <%= e. productPrice %>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="/ordernow/<%= e._item %>"
+                                                class="m-1 btn btn-primary btn-sm shadow">Order
+                                                Now</a>
+                                            <form action="/removeCard/<%= e._id%>" method="post">
+                                                <button class="m-1 btn btn-sm btn-danger shadow">Remove</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%- include('./partials/footer.ejs')%>

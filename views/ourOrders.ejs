@@ -1,0 +1,46 @@
+<%- include('./partials/Header.ejs')%>
+    <%- include('./partials/NavHome.ejs')%>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 mx-auto col-md-10">
+                    <table class="table mt-3 table-responsive ">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product name</th>
+                                <th scope="col">Product Catagory</th>
+                                <th scope="col">Product Price</th>
+                                <th scope="col">qty</th>
+                                <th scope="col">order status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% order.map((e)=> {%>
+                                <tr>
+                                    <td>
+                                        <%= e.productName %>
+                                    </td>
+                                    <td>
+                                        <%= e.category %>
+                                    </td>
+                                    <td>
+                                        <%= e.productPrice %>
+                                    </td>
+                                    <td>
+                                        <%= e.qty %>
+                                    </td>
+                                    <td>
+                                        <% if(e.status){%>
+                                            confirmed
+                                            <%} else {%>
+                                                not-confirmed
+                                                <%}%>
+                                    </td>
+
+                                </tr>
+                                <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%- include('./partials/footer.ejs')%>

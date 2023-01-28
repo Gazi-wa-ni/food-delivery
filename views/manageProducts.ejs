@@ -1,0 +1,44 @@
+<%- include('./partials/adminNav.ejs')%>
+
+    <div class="col-md-7 col-sm-12 col-lg-10">
+        <div class="col-sm-12 mx-auto shadow col-md-12 col-lg-10">
+            <table class="table mt-3 text-center table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Product image</th>
+                        <th scope="col">Product name</th>
+                        <th scope="col">Product Catagory</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.map((e)=> {%>
+                        <tr>
+                            <td>
+                              <img src="/public/productImages/<%= e.image %>" class="table-img" alt="not founded"> 
+                            </td>
+                            <td>
+                                <%= e.productName %>
+                            </td>
+                            <td>
+                                <%= e.category %>
+                            </td>
+                            <td>
+                                <%= e.price %>
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/deleteProduct/<%= e._id %>">
+                                    <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <%})%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <%- include('./partials/footer.ejs')%>

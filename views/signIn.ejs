@@ -1,0 +1,43 @@
+<%- include('./partials/header.ejs')%>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+        <div class="container">
+            <a class="navbar-brand fw-bold text text-primary " href="/">Food Order</a>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-6">
+                    <div class="mx-auto shadow p-5">
+                        <h4 class="text-Primary">Sigin Here</h4>
+                        <form method="post" action="/signin">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">User Name</label>
+                                <input required name="name" class="form-control">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input required type="email" name="email" class="form-control">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input required type="password" name="password" class="form-control"
+                                    id="exampleInputPassword1">
+                            </div>
+                            <% if(msg){%>
+                                <div class="alert alert-danger"><%= msg %></div>
+                                <%}%>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <small>if u don't have an account</small>
+                                    <a class="btn btn-success" href="/login">login</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('./partials/footer.ejs')%>

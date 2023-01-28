@@ -1,0 +1,44 @@
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-container{
+    width: 100%;
+    height: 75vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    object-fit: cover;
+    background-image: linear-gradient(90deg, #fefefe3c 0%, #ffffff2f 100%),url('/public/images/header.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header-container p{
+    font-size: 20px;
+}
+.aboutus-img{
+    width: 100%;
+    height: 300px;
+}
+.section{
+    width: 100%;
+    min-height: 60vh;
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section p{
+    font-size: 18px;
+    color: #000000b8;
+}
+.card img{
+    width: 100%;
+    height: 200px;
+}
+.table-img{
+    width: 100px;
+    height: 50px;
+}

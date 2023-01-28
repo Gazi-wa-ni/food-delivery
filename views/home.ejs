@@ -1,0 +1,142 @@
+<%- include('./partials/header.ejs')%>
+    <%- include('./partials/NavHome.ejs')%>
+
+        <div class="header-container">
+            <h1 class="text-dark fw-bold">Wellcome to our site</h1>
+            <p class=" fw-bold text-dark ">Make sure you will enjoy our products</p>
+        </div>
+
+        <section class=" section">
+            <div class="container">
+                <h3 class="text-danger text-center m-4 ">Our Menu</h3>
+                <div class="row g-4 ">
+                    <div class="col ">
+                        <div class="card shadow mx-auto" style="width: 18rem;">
+                            <img src="/public/images/pizza.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Pizza</h5>
+                                <a href="/explore/pizza" class="btn btn-primary btn-sm shadow">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ">
+                        <div class="card shadow mx-auto" style="width: 18rem;">
+                            <img src="/public/images/about.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Burger</h5>
+                                <a href="/explore/bargur" class="btn btn-primary btn-sm shadow">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ">
+                        <div class="card shadow mx-auto" style="width: 18rem;">
+                            <img src="/public/images/non-veg.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Non-veg</h5>
+                                <a href="/explore/nonveg" class="btn btn-primary btn-sm shadow">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section class="bg-light section">
+            <div class="container  " id="our products">
+                <h2 class="text-center text-danger m-5 ">Our Products</h2>
+                <div class="row g-4 ">
+                    <% items.forEach((e)=> {%>
+                        <div class="col ">
+                            <div class="card shadow mx-auto" style="width: 18rem;">
+                                <img src="/public/productImages/<%= e.image %>" class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">
+                                        <%= e.productName %>
+                                    </h5>
+                                    <p>Rs <%= e.price %>/=</p>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/ordernow/<%= e._id %>" class="m-1 btn btn-primary btn-sm shadow">Order
+                                            Now</a>
+                                        <form action="/addTocard/<%= e._id %>" method="get" class=" m-1 f-right">
+                                            <button type="submit" class="btn btn-warning btn-sm shadow">Add to
+                                                card</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <%})%>
+
+                </div>
+                <a class="mt-5  mx-3 btn btn-sm btn-dark" href="/products">more</a>
+            </div>
+        </section>
+        <!-- Abo ut Us -->
+        <section class="section">
+            <div class="container mb-5 mt-5" id="about us">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 ">
+                        <div class="mx-auto">
+                            <h2 class="text-danger">
+                                About Us
+                            </h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum corrupti molestias,
+                                quos eaque provident ipsa natus libero neque quis eligendi et accusantium voluptatem
+                                animi reprehenderit modi soluta suscipit tempora.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum corrupti molestias,
+                                quos eaque provident ipsa natus libero neque quis eligendi et accusantium voluptatem
+                                animi reprehenderit modi soluta suscipit tempora.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum corrupti molestias,
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col col-sm-12 col-md-6">
+                        <div class="mx-auto">
+                            <img src="/public/images/about.jpg" class=" aboutus-img" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer section -->
+        <section class="bg-primary mt-5">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="mx-auto text-white">
+                            <h3>
+                                Follow us on
+                            </h3>
+                            <p>FaceBook</p>
+                            <p>Instagram</p>
+                            <p>Twitter</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="mx-auto text-white">
+                            <h3>
+                                Address
+                            </h3>
+                            <p>location,streat 129</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <ul class="navbar-nav mx-auto mb-2  mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Our Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#about us">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <%- include('./partials/footer.ejs') %>

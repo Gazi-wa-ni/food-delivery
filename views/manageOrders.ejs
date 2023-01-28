@@ -1,0 +1,56 @@
+<%- include('./partials/adminNav.ejs')%>
+
+    <div class="col-md-7 col-sm-12 col-lg-10">
+        <div class="col-sm-12 mx-auto shadow col-md-12 col-lg-10">
+            <table class="table mt-3 table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Product name</th>
+                        <th scope="col">Product Catagory</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Street Address</th>
+                        <th scope="col">Ordered by</th>
+                        <th scope="col">Action</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <% data.map((e)=> { %>
+                        <tr>
+                            <td>
+                                <%= e.productName %>
+                            </td>
+                            <td>
+                                <%= e.category %>
+                            </td>
+                            <td>
+                                <%= e.productPrice %>
+                            </td>
+                            <td>
+                                <%= e.streetAddress %>
+                            </td>
+                            <td>
+                                <%= e.name %>
+                            </td>
+                            <td class="d-flex">
+                                <% if(!e.status){%>
+                                    <form class="m-1" method="post" action="/admin/confirmOrder/<%= e._id %>">
+                                        <button type="submit" class="btn btn-sm btn-primary">Comfirm Order</button>
+                                    </form>
+                                    <% } else { %> 
+                                     <button class="btn btn-sm btn-success " disabled >Order Confirmed </button>
+                                     <% } %>
+                                            <form class="m-1" method="post" action="/admin/deleteOrder/<%= e._id %>">
+                                                <button type="submit" class="btn btn-sm btn-primary">Remove</button>
+                                            </form>
+                            </td>
+                            <%})%>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <%- include('./partials/footer.ejs')%>
